@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jollibee UAE</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="lightboxOverlay">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+            <img src="lightbox.png" alt="Jollibee Promo">
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="jollibee-logo.png" alt="Jollibee Logo" width="55" height="55" class="me-2">
+                <span>Jollibee UAE</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="branches.html">Locations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Order Online</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <h1>Welcome to Jollibee UAE</h1>
+            <a href="menu.html" class="btn hero-btn">View Menu</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <h2 class="section-title">Best Sellers</h2>
+
+        <div id="bestSellersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+            <!-- indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#bestSellersCarousel" data-bs-slide-to="0"
+                    class="active"></button>
+                <button type="button" data-bs-target="#bestSellersCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#bestSellersCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="bs-slide">
+                        <img src="chickenjoy.jpg" alt="Chickenjoy">
+                        <div class="bs-caption">
+                            <h3>Chickenjoy</h3>
+                            <p>Crispy on the outside, juicy on the inside — our iconic fried chicken</p>
+                            <a href="order.html" class="btn btn-jollibee">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="bs-slide">
+                        <img src="jolly spaghetti.png" alt="Jolly Spaghetti">
+                        <div class="bs-caption">
+                            <h3>Jolly Spaghetti</h3>
+                            <p>Sweet Filipino-style spaghetti loaded with cheese and hotdog slices</p>
+                            <a href="order.html" class="btn btn-jollibee">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="bs-slide">
+                        <img src="yum burger.jpg" alt="Yumburger">
+                        <div class="bs-caption">
+                            <h3>Yumburger</h3>
+                            <p>Classic Jollibee burger — simple, satisfying, and always a favorite</p>
+                            <a href="order.html" class="btn btn-jollibee">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#bestSellersCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#bestSellersCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+
+        <div class="bs-thumbs">
+
+            <div class="bs-thumb active" data-index="0" onclick="goToSlide(0)">
+                <img src="chickenjoy.jpg" alt="Chickenjoy">
+            </div>
+
+            <div class="bs-thumb" data-index="1" onclick="goToSlide(1)">
+                <img src="jolly spaghetti.png" alt="Jolly Spaghetti">
+            </div>
+
+            <div class="bs-thumb" data-index="2" onclick="goToSlide(2)">
+                <img src="yum burger.jpg" alt="Yumburger">
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="info-section">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+                    <div class="feature-card menu-feature">
+                        <div class="feature-overlay">
+                            <h2>Our Menu</h2>
+                            <p>
+                                Fast food classics made with joy.
+                                Enjoy our great-tasting range of products
+                                including Fried Chicken, Burgers, Pies,
+                                Spaghetti, Rice Bowls, Wraps and many more!
+                            </p>
+                            <a href="menu.html" class="btn btn-warning">Explore Menu</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="feature-card location-feature">
+                        <div class="feature-overlay">
+                            <h2>Our Locations</h2>
+                            <p>
+                                We currently have 29 stores across UAE.
+                                Present in Dubai, Abu Dhabi, Al Ain,
+                                Sharjah, Ajman and Ras Al-Khaimah.
+                                Watch out as we'll be arriving in
+                                other Emirates near you soon!
+                            </p>
+                            <a href="branches.html" class="btn btn-warning">Find a Branch</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Developer: Kassiopeia Padilla</p>
+        <p>Artist: Cal Gonzales</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function () {
+            if (!sessionStorage.getItem('jollibee_lightbox_shown')) {
+                const overlay = document.getElementById('lightboxOverlay');
+                overlay.classList.add('show');
+                sessionStorage.setItem('jollibee_lightbox_shown', '1');
+            }
+        })();
+
+        function closeLightbox() {
+            const overlay = document.getElementById('lightboxOverlay');
+            overlay.style.animation = 'fadeIn .3s ease reverse forwards';
+            setTimeout(() => overlay.classList.remove('show'), 280);
+        }
+
+        document.getElementById('lightboxOverlay').addEventListener('click', function (e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        const carousel = document.getElementById('bestSellersCarousel');
+        const thumbs = document.querySelectorAll('.bs-thumb');
+
+        function goToSlide(index) {
+            bootstrap.Carousel.getOrCreateInstance(carousel).to(index);
+        }
+
+        carousel.addEventListener('slid.bs.carousel', function (e) {
+            thumbs.forEach(t => t.classList.remove('active'));
+            document.querySelector(`.bs-thumb[data-index="${e.to}"]`).classList.add('active');
+        });
+    </script>
+</body>
+
+</html>

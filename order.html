@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jollibee UAE | Order Online</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="jollibee-logo.png" alt="Jollibee Logo" width="55" class="me-2">
+                Jollibee UAE
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="branches.html">Locations</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="order.html">Order Online</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="order-banner">
+        <h1>Order Online</h1>
+        <p>Fresh, hot Jollibee delivered to you — or ready for pick-up</p>
+    </section>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+
+                <div class="order-card">
+
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="step-badge">1</span>
+                        <span class="step-title">How would you like your order?</span>
+                    </div>
+
+                    <div class="d-flex gap-3 mb-4">
+                        <button class="order-type-btn active" id="btnDelivery" onclick="setOrderType('delivery')">
+                            🛵 Delivery
+                        </button>
+                        <button class="order-type-btn" id="btnPickup" onclick="setOrderType('pickup')">
+                            🏪 Pick-Up
+                        </button>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="step-badge">2</span>
+                        <span class="step-title">Your Details</span>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+
+                        <div class="col-md-6">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="e.g. Maria">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="e.g. Santos">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="you@email.com">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+971 50 000 0000">
+                        </div>
+
+                    </div>
+
+                    <div id="deliveryFields">
+                        <div class="row g-3 mb-3">
+
+                            <div class="col-12">
+                                <label for="address">Delivery Address</label>
+                                <input type="text" id="address" class="form-control"
+                                    placeholder="Building, Street, Area">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="emirate">Emirate</label>
+                                <select id="emirate" class="form-select">
+                                    <option value="" disabled selected>Select Emirate</option>
+                                    <option>Dubai</option>
+                                    <option>Sharjah</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="apartment">Apartment / Unit (optional)</label>
+                                <input type="text" id="apartment" class="form-control"
+                                    placeholder="e.g. Apt 4B, Floor 7">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="pickupFields" style="display:none;">
+                        <div class="row g-3 mb-3">
+                            <div class="col-12">
+                                <label for="branch">Select Branch</label>
+                                <select id="branch" class="form-select">
+                                    <option value="" disabled selected>Choose your branch</option>
+                                    <optgroup label="Dubai">
+                                        <option>Dubai Mall</option>
+                                        <option>BurJuman</option>
+                                        <option>Mall of the Emirates</option>
+                                        <option>Al Ghurair Centre</option>
+                                        <option>Al Satwa (24 hrs)</option>
+                                        <option>Ibn Battuta Mall</option>
+                                        <option>City Centre Deira</option>
+                                        <option>Silicon Central</option>
+                                        <option>Business Bay</option>
+                                        <option>Dubai Hills Mall</option>
+                                    </optgroup>
+                                    <optgroup label="Sharjah">
+                                        <option>City Centre Sharjah</option>
+                                        <option>Sahara Centre</option>
+                                        <option>Mega Mall Sharjah</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="step-badge">3</span>
+                        <span class="step-title">Build Your Order</span>
+                    </div>
+
+                    <div id="orderItems">
+                        <div class="row g-3 align-items-end mb-4 order-item-row">
+
+                            <div class="col-md-6">
+                                <label>Item</label>
+                                <select class="form-select item-select" onchange="updateTotal()">
+                                    <option value="" disabled selected>Select an item</option>
+                                    <optgroup label="Chicken Favorites">
+                                        <option value="99">Chickenjoy Solo — ₱99</option>
+                                        <option value="525">Chicken Bucket (6 pcs) — ₱525</option>
+                                    </optgroup>
+                                    <optgroup label="Burgers &amp; Meals">
+                                        <option value="49">Yumburger — ₱49</option>
+                                        <option value="89">Burger Steak — ₱89</option>
+                                    </optgroup>
+                                    <optgroup label="Pasta">
+                                        <option value="85">Jolly Spaghetti — ₱85</option>
+                                    </optgroup>
+                                    <optgroup label="Desserts">
+                                        <option value="45">Peach Mango Pie — ₱45</option>
+                                        <option value="99">Pistachio Kunafa Sundae — ₱99</option>
+                                    </optgroup>
+                                    <optgroup label="Drinks">
+                                        <option value="59">Coke Float — ₱59</option>
+                                        <option value="79">Iced Mocha — ₱79</option>
+                                        <option value="89">Iced Mocha Float — ₱89</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>Quantity</label>
+                                <div class="qty-wrapper">
+                                    <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+                                    <span class="qty-display">1</span>
+                                    <button class="qty-btn" onclick="changeQty(this, +1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 text-end">
+                                <button class="btn btn-sm btn-outline-danger rounded-pill px-3"
+                                    onclick="removeItem(this)" style="display:none;">
+                                    Remove
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-outline-warning rounded-pill px-4 mb-4" onclick="addItem()">
+                        + Add Another Item
+                    </button>
+
+                    <hr class="section-divider">
+
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="step-badge">4</span>
+                        <span class="step-title">Special Instructions</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="instructions">Any allergies, preferences, or notes for our crew?</label>
+                        <textarea id="instructions" class="form-control" rows="3"
+                            placeholder="e.g. Extra crispy chicken, no ice in drinks, doorbell doesn't work..."></textarea>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="order-summary-box mb-4">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span id="subtotal">₱0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between" id="deliveryFeeRow">
+                            <span>Delivery fee</span>
+                            <span>₱50.00</span>
+                        </div>
+                        <hr style="border-color:#333; margin: 8px 0;">
+                        <div class="d-flex justify-content-between fw-bold fs-5">
+                            <span style="color:white;">Total</span>
+                            <span id="totalDisplay" style="color:#ffd700;">₱0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="info-strip">
+                        <strong>⏱ Estimated time:</strong> Delivery 30–45 min &nbsp;|&nbsp; Pick-up 15–20 min
+                    </div>
+
+                    <div class="info-strip">
+                        <strong>💳 Payment:</strong> Cash on delivery / pick-up. Card payment available in-store.
+                    </div>
+
+                    <button class="btn-order-submit mt-2" onclick="submitOrder()">
+                        Place Order
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Confirmed! 🎉</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body text-center py-4">
+                    <span class="confirm-icon">🍗</span>
+                    <p class="fs-5 fw-bold mb-1">Thank you, <span id="confirmName" style="color:#ffd700;"></span>!</p>
+                    <p class="text-secondary mb-4">Your order is being prepared with joy.</p>
+
+                    <div class="order-summary-box text-start" id="confirmSummary">
+                    </div>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <a href="index.html" class="btn btn-outline-warning rounded-pill px-4">Back to Home</a>
+                    <button class="btn btn-danger rounded-pill px-4" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developer: Kassiopeia Padilla</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function setOrderType(type) {
+            const isDelivery = type === 'delivery';
+            document.getElementById('btnDelivery').classList.toggle('active', isDelivery);
+            document.getElementById('btnPickup').classList.toggle('active', !isDelivery);
+            document.getElementById('deliveryFields').style.display = isDelivery ? '' : 'none';
+            document.getElementById('pickupFields').style.display = isDelivery ? 'none' : '';
+            document.getElementById('deliveryFeeRow').style.display = isDelivery ? '' : 'none';
+            updateTotal();
+        }
+
+        function changeQty(btn, delta) {
+            const wrapper = btn.closest('.qty-wrapper');
+            const display = wrapper.querySelector('.qty-display');
+            let qty = parseInt(display.textContent) + delta;
+            if (qty < 1) qty = 1;
+            display.textContent = qty;
+            updateTotal();
+        }
+
+        function addItem() {
+            const container = document.getElementById('orderItems');
+            const existing = container.querySelector('.order-item-row');
+            const clone = existing.cloneNode(true);
+
+            clone.querySelector('.item-select').value = '';
+            clone.querySelector('.qty-display').textContent = '1';
+            clone.querySelector('.btn-outline-danger').style.display = '';
+
+            container.appendChild(clone);
+            updateTotal();
+        }
+
+        function removeItem(btn) {
+            const rows = document.querySelectorAll('.order-item-row');
+            if (rows.length <= 1) return;
+            btn.closest('.order-item-row').remove();
+            updateTotal();
+        }
+
+        function updateTotal() {
+            let subtotal = 0;
+            document.querySelectorAll('.order-item-row').forEach(row => {
+                const sel = row.querySelector('.item-select');
+                const qty = parseInt(row.querySelector('.qty-display').textContent);
+                const price = sel.value ? parseFloat(sel.value) : 0;
+                subtotal += price * qty;
+            });
+
+            const isDelivery = document.getElementById('btnDelivery').classList.contains('active');
+            const deliveryFee = isDelivery ? 50 : 0;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('subtotal').textContent = '₱' + subtotal.toFixed(2);
+            document.getElementById('totalDisplay').textContent = '₱' + total.toFixed(2);
+        }
+
+        function submitOrder() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Please fill in all your personal details before placing your order.');
+                return;
+            }
+
+            const isDelivery = document.getElementById('btnDelivery').classList.contains('active');
+
+            if (isDelivery) {
+                const address = document.getElementById('address').value.trim();
+                const emirate = document.getElementById('emirate').value;
+                if (!address || !emirate) {
+                    alert('Please enter your delivery address and emirate.');
+                    return;
+                }
+            } else {
+                const branch = document.getElementById('branch').value;
+                if (!branch) {
+                    alert('Please select a pick-up branch.');
+                    return;
+                }
+            }
+
+            let hasItem = false;
+            document.querySelectorAll('.item-select').forEach(sel => {
+                if (sel.value) hasItem = true;
+            });
+            if (!hasItem) {
+                alert('Please select at least one item.');
+                return;
+            }
+
+            let itemLines = '';
+            document.querySelectorAll('.order-item-row').forEach(row => {
+                const sel = row.querySelector('.item-select');
+                const qty = row.querySelector('.qty-display').textContent;
+                if (sel.value) {
+                    const label = sel.options[sel.selectedIndex].text.split(' —')[0];
+                    const price = (parseFloat(sel.value) * parseInt(qty)).toFixed(2);
+                    itemLines += `<div class="d-flex justify-content-between">
+                    <span>${qty}× ${label}</span>
+                    <span style="color:#ffd700;">₱${price}</span>
+                </div>`;
+                }
+            });
+
+            const totalText = document.getElementById('totalDisplay').textContent;
+            const typeLabel = isDelivery ? '🛵 Delivery' : '🏪 Pick-Up';
+
+            document.getElementById('confirmName').textContent = firstName;
+            document.getElementById('confirmSummary').innerHTML = `
+            ${itemLines}
+            <hr style="border-color:#333; margin:10px 0;">
+            <div class="d-flex justify-content-between fw-bold">
+                <span>Total</span>
+                <span style="color:#ffd700;">${totalText}</span>
+            </div>
+            <div class="mt-2 text-secondary" style="font-size:.85rem;">
+                ${typeLabel} &nbsp;|&nbsp; ${firstName} ${lastName}
+            </div>`;
+
+            new bootstrap.Modal(document.getElementById('successModal')).show();
+        }
+    </script>
+</body>
+
+</html>
